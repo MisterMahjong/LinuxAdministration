@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+echo "Meet the Savages!"
+awk -F'[: ]' '$2 ~ /Savage/{print $1" "$2":"$3$4 }' awkfile
+echo "\nWhat did Chet contribute?"
+awk -F'[: ]' '$1 ~ /Chet/{print $1 " " $2" Contributions:" "$"$5" ""$"$6" ""$"$7}' awkfile
+echo "\nWho contributed 250 in the first month?"
+awk -F'[: ]' '$5 ~ /250/{print $1 " " $2}' awkfile
