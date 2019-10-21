@@ -1,0 +1,7 @@
+echo "Name your new group"
+read groupname
+sudo groupadd $groupname
+sudo mkdir /groupstores/$groupname
+sudo chgrp $groupname /groupstores/$groupname
+sleep 2
+echo "$groupname created!"
