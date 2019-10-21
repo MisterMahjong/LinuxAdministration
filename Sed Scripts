@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+sed '1 i\PERSONNEL FILE' sedfile
+sed  '/:.+500$/d' sedfile
+sed  's/\(^[A-Z][a-z]*\)\([ \t]*\)\([A-Z][a-z]*\):\(.*\)$/\3\2\1:\4/'
+sed '$ a END' sedfile
+~
