@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Input the path to the user list you wish to use"
+read filepath
+echo "Input the filename for the new list of generated users"
+read newfilename
+echo "Input the group you wish to add the new users too"
+echo `ls /groupstores`
+read groupdestination
+
+while read line
+do
+set -- $line
+passgen="temp$(shuf -i 10000-99999 -n 1)"
+useralias="$1$( shuf -i 1000-9999 -n 1)"
+echo "$useralias $passgen" >> /etc/usergen/$newfilename
+useradd -g $groupdestination $useralias
+chown $useralias /home/$useralias
+echo $useralias:$passgen | chpasswd
+chage -d 0 $useralias
+done < $filepath
+
+
+echo "Users created. Check generated user list for logins."
