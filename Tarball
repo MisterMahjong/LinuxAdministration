@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Path to directoy to archive"
+read archive1
+echo "New archive name"
+read archive2
+tar -zcvf /backups $archive2 $archive1
