@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set `date`
+echo "Date at the time of this file running: $2 $3 $4 $6 $7" >> netcheck$2$3$4$6$7
+echo "The following ports are open" >> netcheck$2$3$4$6$7
+netstat -lntu | awk  '$1 ~ /tcp||udp/{print $4}' | awk -F '[: ]' '{print $2}' | sed '/^$/d' | sort | uniq >> netcheck$2$3$4$6$7
+echo "The following interfaces/IP addresses are available on this server" >> netcheck$2$3$4$6$7
+ifconfig -a | awk '$1 ~ /'inet'/{print $2}' >> netcheck$2$3$4$6$7
+echo "The following IP address(es) are the DNS servers currently being used by this server" >> netcheck$2$3$4$6$7
+cat /etc/resolv.conf >> netcheck$2$3$4$6$7
+
+cat netcheck$2$3$4$6$7
+
