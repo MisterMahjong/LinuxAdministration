@@ -1,0 +1,37 @@
+For this directory integrity process to work, there are TWO scripts below that need to be run. 
+
+
+#For the script below, an MD5 hash is kept in a var directory called "dirhash", here, "good/valid"
+#hashes of verified directories are kept, the script below will check a directories MD5SUM hash
+#output against the file and return if the directory is unchanged, or something is different. 
+
+PART I : Creating the Control 
+#!/bin/bash
+echo "Name the directory you wish to create a control hash for"
+read dirname
+tar -c $dirname | gzip -n>12345.tgz
+md5sum 12345.tgz | awk '{print $1}' > $dirname"Control"
+rm 12345.tgz
+cp $dirname"Control" /var/dirhash/$dirname"Control"
+rm $dirname"Control"
+
+PART II : The Check 
+#!/bin/bash
+echo "Enter the directory you with to verify"
+read dirname
+thegood=$(</var/dirhash/$dirname"Control")
+tar -c $dirname | gzip -n>712112.tgz
+md5sum 712112.tgz | awk '{print $1}' > /tmp/thetest
+thetest=$(</tmp/thetest)
+echo "$thegood"
+echo "$thetest"
+if [ $thegood == $thetest ]
+then
+        echo "No changes detected"
+fi
+if [ $thegood != $thetest ]
+then
+        echo "This directory has been altered"
+fi
+rm /tmp/thetest
+rm 712112.tgz
