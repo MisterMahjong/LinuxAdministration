@@ -1,0 +1,19 @@
+#This is a script that when run, will return all failed attempts to log into root over SSH, and returns all logins between midnight and 6am. 
+#There was no need to write a script to check a single user's activity, as the "last" command can be used to check each users log history.
+
+
+#!/bin/bash
+echo ".............................................."
+echo "Failed root login attempts..."
+echo ".............................................."
+awk '/Failed/ {print}' /var/log/secure
+echo ".............................................."
+echo "Logins between the hours of 00:00 (midnight) and 06:00"
+echo ".............................................."
+last | awk '{print $1" "$3" "$7}' | sed 's|[:]||g' | awk '{ if ($3 >= 0000 && $3 <= 0600) print $1" "$2" "$3}'
+echo ".............................................."
+
+
+echo "If you're looking to track a specific users login activity, simply use the last command"
+
+echo "Example: last lwilkins will show all of my login history, including login times and IP addresses"
