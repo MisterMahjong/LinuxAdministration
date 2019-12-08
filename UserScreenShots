@@ -1,0 +1,13 @@
+This runs, creates a new daily log if one doesnt exist, 
+appends a new entry with the current users from line 35 (users, doesnt include daemons) down. Each time
+a new entry is made, the time of the screenshot is appended to the file and the list is printed. This file should be created 
+as root and assigned with the SUID in order to run through the chrontab. 
+
+#!/bin/bash
+set `date`
+echo "$4" >> /var/log/UserShot$2$3$6
+awk -F ":" '{if(NR>=35) print "User:"$1 " Location:"$6}' /etc/passwd >> /var/log/UserShot$2$3$6
+
+Crontab was edited to include the path to the script, as well as commands to run every 30 minutes. 
+
+0,30 * * * * /home/lwilkins/usershot
