@@ -1,0 +1,13 @@
+Note: This script is only partially complete. It will run and create a file for the day, showing complete lists of 
+hidden files and root executables. In order to check whether they've been modified however, one must run the final line for the 
+files/executables in question.
+
+echo “List of hidden files on this server”
+find / -type f -iname ".*" -ls >> /var/log/HiddenFiles$2$3$6
+echo “ “
+echo “List of SUID’d executables on this server”  >> /var/log/HiddenFiles$2$3$6
+find /bin -perm -4000  
+
+To check the last modified time for a file use the following command:
+
+stat usershot  | awk '{if(NR == 8)print}' 
