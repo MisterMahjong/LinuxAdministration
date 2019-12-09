@@ -1,0 +1,113 @@
+WEEKLY ACCOMPLISHMENTS
+
+Week ending 9/6:
+
+Challenges: Getting out of the summer mindset. 
+
+Accomplishments: CentOS 7 VM installed on my laptop.
+
+
+
+Week ending 9/13:
+
+
+
+Challenges: Most of my power sources/cables compatible with the Pi were throwing me voltage errors. Also needed some gear, keyboards, a screen to use, that kind of stuff.
+
+Accomplishments: Installed Debian server on myRaspberry Pi 3B+, some light scripting to get back in the swing of scripting in bash. File exploration.
+
+
+
+Week Ending 9/21:
+
+
+
+Challenges:  need to reinstall ubuntu server on home setup and enable SSH capabilities. Also had trouble figuring out how to transfer files. Used SmarTTY (thanks Einor).
+
+Accomplishments: Worked on the User scripting, finished and submitted the "setting your systems up" homework/screenshots. Plan on completing the user script earlier in the week, and finishing the remaining scripts for Sunday. 
+
+
+
+
+
+Week Ending 9/28:
+
+Challenges: Raspberri Pi server decided to give me voltage problems and is becoming a pain to deal with (no seperate montior). Going to install Ubuntu Server on my laptop as a second virtual machine.
+
+Accomplishments: Finished the grep assignment with no difficulties. Made some tweaks to the user/group script.
+
+
+
+Week Ending 10/5:
+
+Accomplishments: Added a little more to the user add scripts, i figure its already late so I can keep adding/perfecting it before I decide to hand it in. Looked over some config changes, took some screencaps for documentation, and finished the SED/AWK assignment for the weekend. 
+
+
+
+Week Ending 10/12: 
+
+Accomplishments: Made a little progress on further setting up my server for the month end assignments.
+
+
+
+Week Ending 10/19:
+
+Challenges: Turns out the screenshots I had taken have been blackholed. Thought I saved them in a certain folder on my work pc that no longer seems to exist. Blaming nephew. Have to take more screenshots.
+
+Accomplishments: Took more screenshots, mocked up the powerpoint for Monday's presentation and got back into my Github to host/upload the necessary files. 
+
+
+
+Week Ending 10/26
+
+Challenges: Finding the correct commands regarding stopping/starting processes for Centos. Getting into emergency mode was a little weird at first, but I got it. Setting up some network commands. 
+
+Accomplishments: Submitted Networking and Server Setup documents. Still have to wrap up the firewall assignment for this Friday at the latest. 
+
+
+
+Week Ending 11/2 
+
+Challenges: IPTable commands weren't working at all, and an update wasn't fixing the problem. Ended up reverting to an earlier version of my server and the problem went away, but couldn't pin down a reason WHY this was occuring.
+
+Accomplishments: Got annoyed with the firewall problems I was having so I moved onto hardening my system. Got Lynis installed and ran it, saved the output in a file, and will write a summary later next week. 
+
+
+
+Week Ending 11/9
+
+Challenges: Jumped back into my Ubuntu server to try to run some of the scripts I made before to see if they work. No immediate problems, but I did have to find some config file locations that I wasn't aware of before. Will have to document these for the final portfolio. 
+
+Accomplishments: Got the remainder of the firewall questions finished. I'll submit all these when the due date comes up, just in case I realize something is wrong with them/they could be improved. 
+
+
+
+Week Ending 11/16
+
+Challenges: Splunk videos are long 
+
+Accomplishments: Got maybe 1/3rd through the Splunk material. Going to push through this week and hopefully have part 1 finished for next Sunday. 
+
+
+
+Week Ending 11/23 
+
+Challenges: Working through some of the security scripts, I'm having trouble getting the tarball command to work in a way where the hashes are matching.
+
+Accomplishments: Finished the first security script, and got some information together for the last one (booting into emergency mode for both the servers). Made some progress on the second script, but got stuck on producing stable hash outputs for comparison, looks like the time a file was tar'd can affect the output.
+
+
+
+Week Ending 11/30
+
+Challenges: Got kicked out of Splunk, i didnt make much progress from last time I'm afraid to admit, so now it looks like I have to start over...
+
+Accomplishments: Got 4/6 of the security scripts completed. I havent done them in order so I dont have anything to submit for the end of the month, I'll eat the late penalty and just hold onto what I have for now, making these has been surprisingly engaging, and I got some pretty good ones made up that I could definitely show off for a portfolio. Noticing my documentation for the Ubuntu documentation is light, so im going to try to get at least a few pages together for the portfolio presentation. 
+
+
+
+Week Ending 12/7
+
+Challenges: Made some more progress in Splunk....again, got a few modules in but i dont think i'll get it done in time, will submit what I have for Tuesday. Also, need to backtrack and grab some documentation on the servers. 
+
+Accomplishments: Finished off almost all the security scripts, and turned in the first assignment. The second one, I just need to get the emergency boot stuff going and I should be all set. 
