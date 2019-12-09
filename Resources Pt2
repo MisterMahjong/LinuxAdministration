@@ -1,0 +1,15 @@
+Each of these links, whether I used the tools within or not, were integral to the 
+creation of my servers, and fulfilling the administrative tasks required to complete this
+course. I'm sure there are more that I missed, but this is a good portion of what I used.
+
+
+https://www.centos.org/forums/viewtopic.php?t=19203 - Adding programs to startup 
+https://geekflare.com/linux-networking-commands/ - Useful Networking Commands 
+https://www.thegeekdiary.com/centos-rhel-how-to-find-if-a-network-port-is-open-or-not/ - More networking tools 
+https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
+https://askubuntu.com/questions/486082/hash-value-on-directory - Hashing directories, good for sec script #3
+https://serverfault.com/questions/763533/disable-ping-from-a-specific-ip-rhel-7 - More information about IP Tables rules 
+https://www.crybit.com/how-to-save-current-iptables-rules/ - Simple solution for saving/backing up IPTable configuration 
+https://cisofy.com/documentation/lynis/get-started/#installation-manual - Installing Lynis
+https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/ - Helpful command line tools for server health and performance
+https://www.ostechnix.com/monitor-file-changes-using-fswatch-linux/ - monitoring file changes
