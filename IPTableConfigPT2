@@ -1,0 +1,52 @@
+Below are a list of some firewall/IPtable rule configurations that were tested on the CENTOS server.
+
+Q1.  Deal with web server (open needed ports, and forward port 80 traffic to 8080)
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+iptables -A PREROUTING -t nat -i INPUT -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+Q2.   Deal with MySQL service (open needed ports)
+iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+
+Q3.   Deal with SSH service (allow incoming and outgoing SSH, second script to deny SSH)
+Open SSH Inbound/Outbound
+iptables -I INPUT -p tcp --dport ssh -j ACCEPT
+iptables -I OUTPUT -p tcp --dport ssh -j ACCEPT
+Block SSH
+Note: There could be a few approaches to this kind of problem. We could either add new 
+block rules to the top of the INPUT chain for SSH connections, or we could delete the ALLOW rule for SSH, but the default policy will have to be set to BLOCK. In this case, I'll be creating new rules. 
+(I know these commands work, because I lost my connection the moment I plugged them it)
+iptables -I INPUT -p tcp --dport ssh -j BLOCK
+iptables -I OUTPUT -p tcp --dport ssh -j BLOCK
+
+Q4. Deal with Email service (Such as allow or block incoming SMTP,POP3...)
+Note: SMTP runs on port 25, and POP3 runs on port 110. 
+iptables -I INPUT -p tcp --dport 25 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -I INPUT -p tcp --dport 110 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+Q5. Script to allow/block specific hosts, MAC addresses, block telnet, block ping
+Note: The other scripts for this lab would require a simple call to execute, but for this one, we'll allow input to block specific IP/MAC addresses from telnetting/pinging. 
+Script for IP Blocking (IPBAN)
+#!/bin/bash
+echo "Enter the IP address you wish to block"
+read BAN
+iptables -I INPUT -s $BAN -p tcp --dport 23 -j DROP
+iptables -I INPUT -s $BAN -p icmp --icmp-type 8 -j DROP
+echo "$BAN has been blocked from Telnet access and pinging"
+Script for MAC Blocking (MACBLOCK)
+#!/bin/bash
+echo "Enter the MAC Address you wish to ban"
+read BAN
+iptables -I INPUT -p tcp --dport 23 -m mac --mac-source $BAN -j DROP
+iptables -I INPUT -p icmp --icmp-type echo-request -m mac --mac-source $BAN -j DROP
+
+Q6. Write a script to backup your Firewall/iptables
+IPtables has a built in utility that allows for easy back ups of the firewall. 
+"iptables-save > backup.txt" will create a copy of the table’s rules 
+to rebuild the tables based off the copy the command is 
+"iptables-restore < backup.txt" 
+
+
+
+And here's a copy of the currently configured IPTables on the CENTOS device.
+
