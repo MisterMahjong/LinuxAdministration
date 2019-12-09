@@ -1,0 +1,17 @@
+Below is a script that, when run, will create a daily snapshot of the servers "health", tracking various outputs of handy commands, and keeping them
+in a special healthlog folder I created in the etc directory. This could easily be set to run as an automated task using crontab. 
+
+
+#!/bin/bash
+set `date`
+echo "System Hard Disk Information" > /etc/healthlog/"Health$2-$3-$4"
+df | awk '{print  $1, $5}' >> /etc/healthlog/"Health$2-$3-$4"
+echo " " >> /etc/healthlog/"Health$2-$3-$4"
+echo "Snapshot of CPU usage at this time" >> /etc/healthlog/"Health$2-$3-$4"
+mpstat >> /etc/healthlog/"Health$2-$3-$4"
+echo " " >> /etc/healthlog/"Health$2-$3-$4"
+echo "System Memory Utilization at this time" >> /etc/healthlog/"Health$2-$3-$4"
+free >> /etc/healthlog/"Health$2-$3-$4"
+echo " " >> /etc/healthlog/"Health$2-$3-$4"
+echo "Snapshot of running processes when this snapshot was taken" >> /etc/healthlog/"Health$2-$3-$4"
+ps -aux >> /etc/healthlog/"Health$2-$3-$4"
