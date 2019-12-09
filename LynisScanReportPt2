@@ -1,0 +1,17 @@
+For this class, we did a security scan of our servers using Lynis. Typically, one would
+NOT upload something like this to be publically viewable, for obvious reasons, but I am
+uploading this one as an example of what a security report might look like.
+
+Lynis Security Scan: 11/19/2019
+I performed a scan of the system using Lynis today, there were 2 Warnings reported.
+•	Information disclosure discovered in the SMTP (email) Banner, this will need to be changed OR SMTP will have to be disabled outright. 
+•	Fail2Ban jails have been disabled, reenabling them should fix the issue.
+
+There were also quite a few suggestions for security improvements. 
+•	Minimum and Maximum password ages have not been configured, these should be enabled to help harden password security. 
+•	USB Storage is enabled, but not in use. I should consider disabling USB storage to prevent theft of sensitive data.
+•	Some IPTable rules may not be in use, Lynis suggest that I review my IPTables and remove any rules that aren’t useful. 
+•	Lynis suggests installing Apache mod_evasive to guard against DoS/Brute Force attacks, and Apache modsecurity to guard against web application attacks. 
+•	SSH port should maybe be changed from 22 to something else, as 22 is the default. 
+•	SSH max sessions should also be reduced from 10 sessions to 2. 
+•	A malware scanner should be installed 
